@@ -1,42 +1,61 @@
+{% load static %}
 <!DOCTYPE html>
 
 <html>
   <head>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+    <link
+      rel="stylesheet"
+      href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"
+    />
     <style>
-    .taskbar {
-      background-color: rgb(230, 230, 230);
-      font-size: large;
-      font-weight: bold;
-    }
+      .taskbar {
+        background-color: rgb(230, 230, 230);
+        font-size: large;
+        font-weight: bold;
+      }
     </style>
     <title>Muhammed's Blog</title>
   </head>
 
-  <body style=background-color:#ECFEFF>
+  <body style="background-color: #ecfeff;">
     <div class="page-header">
-      <h1><img src="/blog/templates/blog/imgs/IMG-4012.JPG" height="100px" /><a href=""> About This Page</a></h1>
+      <h1>
+        <img src="{% static 'imgs/IMG-4012.JPG' %}" height="100px" /><a href="">
+          About This Page</a
+        >
+      </h1>
     </div>
-    
-    
+
     <div class="taskbar">
       <!-- <a href="/blog/templates/blog/post_list.html">Home</a>
       <a href="/blog/templates/blog/about.html">About</a>
       <a href="/blog/templates/blog/contact.html">Contact</a> -->
-            <a href="{% url 'post_list' %}">Home</a>
-            <a href="{% url 'webpage2' %}">About</a>
-            <a href="{% url 'webpage3' %}">Contact</a>
+      <a href="{% url 'post_list' %}">Home</a>
+      <a href="{% url 'webpage2' %}">About</a>
+      <a href="{% url 'webpage3' %}">Contact</a>
     </div>
 
-    <br>
-    <br>
+    <br />
+    <!-- picture from pixabay: https://pixabay.com/vectors/django-logo-django-project-339744/ -->
 
-    <h4>Welcome to my first ever website! I made this website using Django, an
-    easy to use web framework that utilizes Python to create awesome websites!
-    Django essentially provides a template to develop and customize your
-    website however you desire. However, aesthetic components of this website
-    were done with the help of HTML and CSS. This was my first time really using HTML and CSS, but I really enjoyed using them in developing this website. Anyways, I hope you enjoy using this
-    website and to come back for more content!</h4>
+    <img src="{% static 'imgs/logo.png' %}" height="200px" alt="django logo" />
+
+    <br />
+    <br />
+
+    <h4>
+      Welcome to my first ever website! I made this website using Django, an
+      easy to use web framework that utilizes Python to create awesome websites!
+      Django essentially provides a template to develop and customize your
+      website however you desire. However, aesthetic components of this website
+      were done with the help of HTML and CSS. This was my first time really
+      using HTML and CSS, but I really enjoyed using them in developing this
+      website. Anyways, I hope you enjoy using this website and to come back for
+      more content!
+    </h4>
   </body>
 </html>
