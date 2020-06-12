@@ -1,25 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+
 <html>
-    <head>
-        <title>My Blog</title>
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ei-edge" />
+    <link
+      rel="stylesheet"
+      href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"
+    />
+    <!-- <link rel="stylesheet" href="{% static 'css/blog.css' %}" /> -->
+    <style>
+      .taskbar {
+        background-color: rgb(230, 230, 230);
+        font-size: large;
+        font-weight: bold;
+      }
+    </style>
+    <title>Muhammed's Blog</title>
+  </head>
 
-    <body>
-        <div>
-            <h1><a href="">Muhammed's Blog</a></h1>
-        </div>
-        
-        {% for post in posts %}
-            <div>
-                <p>published: {{post.published_date}}</p>
-                <h2><a href="">{{post.title}}</a></h2>
-                <p>{{post.text|linebreaksbr}}</p>
+  <body style="background-color: #ecfeff;">
+    <div class="page-header">
+      <h1>
+        <img src="{% static 'imgs/IMG-4012.JPG' %}" alt="icon" height="100px" />
+        <a href="">Muhammed's Blog</a>
+      </h1>
+    </div>
+
+    <br />
+    <div class="taskbar">
+      <a href="{% url 'post_list' %}">Home</a>
+      <a href="{% url 'webpage2' %}">About</a>
+      <a href="{% url 'webpage3' %}">Contact</a>
+    </div>
+
+    <br />
+    <br />
+    <div class="content container">
+      <div class="row">
+        <div class="col-md-8">
+          {% for post in posts %}
+          <div class="post">
+            <div class="date">
+              <p>published: {{ post.published_date }}</p>
             </div>
-        {% endfor %}
-
-        <!-- <div>
-            <p>published: 26.5.2020, 10:38</p>
-            <h2><a href="">My First Blog Post</a></h2>
-            <p>This is my first blog post using Django and HTML. I am excited to learn how to further improve upon this blog and make it more aesthetically pleasing.</p>
-        </div>> -->
-    </body>
+            <h2><a href="">{{ post.title }}</a></h2>
+            <p>{{ post.text|linebreaksbr }}</p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
