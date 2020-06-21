@@ -3,47 +3,127 @@
 
 <html>
   <head>
-    <link
-      rel="stylesheet"
-      href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"
-    />
-    <title>Muhammed's Blog</title>
-
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
     <style>
-      .taskbar {
-        background-color: rgb(230, 230, 230);
-        font-size: large;
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        color: black;
+        background-image: url("{% static 'imgs/dxb.jpg' %}");
+        background-size: cover;
+        background-attachment: fixed;
+      }
+
+      .tempholder {
+        display: flex;
+        height: fit-content;
+      }
+
+      .ltemp {
+        width: 20%;
+        float: left;
+      }
+
+      .lcont {
+        float: left;
+        width: 95%;
+        height: 100%;
+        background-color: whitesmoke;
+        text-align: center;
+        opacity: 50%;
+      }
+
+      .main {
+        width: 60%;
+        height: 100%;
+        float: left;
+        background-color: rgb(219, 219, 219);
+        text-align: center;
+      }
+
+      .rtemp {
+        width: 20%;
+        float: right;
+      }
+
+      .rtemp .rcont {
+        width: 95%;
+        height: 100%;
+        float: right;
+        background-color: whitesmoke;
+        text-align: center;
+        opacity: 50%;
+      }
+
+      .text {
+        font-family: Arial, Helvetica, sans-serif;
         font-weight: bold;
+        font-size: large;
       }
     </style>
+    <title>Muhammed's Blog</title>
   </head>
 
-  <body style=background-color:#ECFEFF>
-    <div class="page-header">
-      <h1><img src="{% static 'imgs/IMG-4012.JPG' %}" height="100px" /><a href=""> Contact Me</a></h1>
+  <body>
+    <div class="profilepic" style="padding-top: 20px;">
+      <img src="{% static 'imgs/IMG-4012.JPG' %}" alt="icon" height="100px" />
     </div>
+
+    <div class="ttl">
+      <h1>MUHAMMED HAZIM</h1>
+    </div>
+
+    <br />
 
     <div class="taskbar">
-      <!-- <a href="/blog/templates/blog/post_list.html">Home</a>
-      <a href="/blog/templates/blog/about.html">About</a>
-      <a href="/blog/templates/blog/contact.html">Contact</a> -->
-            <a href="{% url 'post_list' %}">Home</a>
-            <a href="{% url 'webpage2' %}">About</a>
-            <a href="{% url 'webpage3' %}">Contact</a>
+      <a href="{% url 'post_list' %}">HOME</a>
+      <a href="{% url 'webpage2' %}">ABOUT</a>
+      <a class="active" href="{% url 'webpage3' %}">CONTACT</a>
     </div>
 
-        <h2 style=color:rgb(105,101,101)>Feel free to email of whatsapp me at the following contacts:</h2>
+    <br />
+    <br />
 
-        <br>
-        
-        <h4><a href="">Email: </a>mxs1387@student.bham.ac.uk</h4>
-        
-        <h4><a href="">Whatsapp: </a>+6011-1070-1846</h4>
+    <div class="tempholder">
+      <div class="ltemp">
+        <div class="lcont">
+          <h1 style="font-weight: bold;">hello.</h1>
+          <!-- <img
+            src="{% static 'imgs/IMG-4012.JPG' %}"
+            alt="author"
+            height="200px"
+          /> -->
+        </div>
+      </div>
 
-    </form>
+      <div class="main" style="padding-bottom: 20px;">
+        <h1>
+          Feel free to email of whatsapp me at the following contacts:
+        </h1>
+
+        <div class="text">
+          Email: mxs1387@student.bham.ac.uk
+          <br />
+          Whatsapp: +6011-1070-1846
+          <br />
+          Linkedin:
+          <a
+            href="https://www.linkedin.com/in/muhammed-hazim-shahridan-faiez-963a0049/"
+            target="_blank"
+            >Click here.</a
+          >
+        </div>
+      </div>
+
+      <div class="rtemp">
+        <div class="rcont">
+          <h1>goodbye.</h1>
+          <!-- <img
+            src="{% static 'imgs/IMG-4012.JPG' %}"
+            alt="author"
+            height="200px"
+          /> -->
+        </div>
+      </div>
+    </div>
   </body>
 </html>

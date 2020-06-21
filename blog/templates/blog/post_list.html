@@ -1,61 +1,9 @@
-{% load static %}
-<!DOCTYPE html>
-
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ei-edge" />
-    <link
-      rel="stylesheet"
-      href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"
-    />
-    <!-- <link rel="stylesheet" href="{% static 'css/blog.css' %}" /> -->
-    <style>
-      .taskbar {
-        background-color: rgb(230, 230, 230);
-        font-size: large;
-        font-weight: bold;
-      }
-    </style>
-    <title>Muhammed's Blog</title>
-  </head>
-
-  <body style="background-color: #ecfeff;">
-    <div class="page-header">
-      <h1>
-        <img src="{% static 'imgs/IMG-4012.JPG' %}" alt="icon" height="100px" />
-        <a href="">Muhammed's Blog</a>
-      </h1>
-    </div>
-
-    <br />
-    <div class="taskbar">
-      <a href="{% url 'post_list' %}">Home</a>
-      <a href="{% url 'webpage2' %}">About</a>
-      <a href="{% url 'webpage3' %}">Contact</a>
-    </div>
-
-    <br />
-    <br />
-    <div class="content container">
-      <div class="row">
-        <div class="col-md-8">
-          {% for post in posts %}
-          <div class="post">
-            <div class="date">
-              <p>published: {{ post.published_date }}</p>
-            </div>
-            <h2><a href="">{{ post.title }}</a></h2>
-            <p>{{ post.text|linebreaksbr }}</p>
-          </div>
-          {% endfor %}
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
+{% extends 'blog/base.html' %} {% block content %} {% for post in posts %}
+<div class="post">
+  <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+  <p>{{ post.text|linebreaksbr }}</p>
+  <div class="date">
+    {{ post.published_date }}
+  </div>
+</div>
+{% endfor %} {% endblock %}

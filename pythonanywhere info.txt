@@ -1,0 +1,7 @@
+pythonanywhere superuser:
+
+mxs1387.pythonanywhere.com
+
+username:admin
+email:hazimshahridan@gmail.ciom
+password: MH@zim2001

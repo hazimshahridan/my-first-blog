@@ -1,0 +1,149 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ei-edge" />
+    <link
+      rel="stylesheet"
+      href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        color: black;
+        background-image: url("{% static 'imgs/dxb.jpg' %}");
+        background-size: cover;
+        background-attachment: fixed;
+      }
+
+      .post {
+        font-family: Arial, Helvetica, sans-serif;
+        color: black;
+      }
+
+      .tempholder {
+        display: flex;
+        height: fit-content;
+      }
+
+      .ltemp {
+        width: 20%;
+        float: left;
+      }
+
+      .lcont {
+        float: left;
+        width: 95%;
+        height: 100%;
+        background-color: whitesmoke;
+        text-align: center;
+        opacity: 50%;
+      }
+
+      .main {
+        width: 60%;
+        height: 100%;
+        float: left;
+        background-color: rgb(219, 219, 219);
+        text-align: center;
+      }
+
+      .rtemp {
+        width: 20%;
+        float: right;
+      }
+
+      .rtemp .rcont {
+        width: 95%;
+        height: 100%;
+        float: right;
+        background-color: whitesmoke;
+        text-align: center;
+        opacity: 50%;
+      }
+
+      .text {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: large;
+      }
+    </style>
+    <title>Muhammed's Blog</title>
+  </head>
+
+  <body>
+    <div class="profilepic" style="padding-top: 20px;">
+      <img src="{% static 'imgs/IMG-4012.JPG' %}" alt="icon" height="100px" />
+    </div>
+
+    <br />
+
+    <div class="ttl">
+      <a href="{% url 'post_new' %}" class="top_menu"
+        ><span class="glyphicon glyphicon-plus"></span
+      ></a>
+      <h1
+        style="
+          font-family: Arial, Helvetica, sans-serif;
+          font-weight: bold;
+          font-size: xx-large;
+        "
+      >
+        MUHAMMED HAZIM
+      </h1>
+    </div>
+
+    <br />
+
+    <div class="taskbar">
+      <a class="active" href="{% url 'post_list' %}">HOME</a>
+      <a href="{% url 'webpage2' %}">ABOUT</a>
+      <a href="{% url 'webpage3' %}">CONTACT</a>
+    </div>
+
+    <br />
+    <br />
+
+    <div class="tempholder">
+      <div class="ltemp">
+        <div class="lcont">
+          <h1 style="font-weight: bold;">hello.</h1>
+          <!-- <img
+            src="{% static 'imgs/IMG-4012.JPG' %}"
+            alt="author"
+            height="200px"
+          /> -->
+        </div>
+      </div>
+
+      <div class="main">
+        <div class="content_container">
+          <div class="row">
+            <div class="text">
+              {% block content %} {% endblock %}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rtemp">
+        <div class="rcont">
+          <h1 style="font-weight: bold;">goodbye.</h1>
+          <!-- <img
+            src="{% static 'imgs/IMG-4012.JPG' %}"
+            alt="author"
+            height="200px"
+          /> -->
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

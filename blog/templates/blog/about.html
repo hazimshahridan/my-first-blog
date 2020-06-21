@@ -3,59 +3,148 @@
 
 <html>
   <head>
-    <link
-      rel="stylesheet"
-      href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"
-    />
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
     <style>
-      .taskbar {
-        background-color: rgb(230, 230, 230);
-        font-size: large;
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        color: black;
+        background-image: url("{% static 'imgs/dxb.jpg' %}");
+        background-size: cover;
+        background-attachment: fixed;
+      }
+
+      .tempholder {
+        display: flex;
+        height: fit-content;
+      }
+
+      .ltemp {
+        width: 20%;
+        float: left;
+      }
+
+      .lcont {
+        float: left;
+        width: 95%;
+        height: 100%;
+        background-color: whitesmoke;
+        text-align: center;
+        opacity: 50%;
+      }
+
+      .main {
+        width: 60%;
+        height: 100%;
+        float: left;
+        background-color: rgb(219, 219, 219);
+        text-align: center;
+      }
+
+      .rtemp {
+        width: 20%;
+        float: right;
+      }
+
+      .rtemp .rcont {
+        width: 95%;
+        height: 100%;
+        float: right;
+        background-color: whitesmoke;
+        text-align: center;
+        opacity: 50%;
+      }
+
+      .text {
+        font-family: Arial, Helvetica, sans-serif;
         font-weight: bold;
+        font-size: large;
       }
     </style>
     <title>Muhammed's Blog</title>
   </head>
 
-  <body style="background-color: #ecfeff;">
-    <div class="page-header">
-      <h1>
-        <img src="{% static 'imgs/IMG-4012.JPG' %}" height="100px" /><a href="">
-          About This Page</a
-        >
-      </h1>
+  <body>
+    <div class="profilepic" style="padding-top: 20px;">
+      <img src="{% static 'imgs/IMG-4012.JPG' %}" alt="icon" height="100px" />
     </div>
+
+    <div class="ttl">
+      <h1 style="font-size: xx-large;">MUHAMMED HAZIM</h1>
+    </div>
+
+    <br />
 
     <div class="taskbar">
-      <!-- <a href="/blog/templates/blog/post_list.html">Home</a>
-      <a href="/blog/templates/blog/about.html">About</a>
-      <a href="/blog/templates/blog/contact.html">Contact</a> -->
-      <a href="{% url 'post_list' %}">Home</a>
-      <a href="{% url 'webpage2' %}">About</a>
-      <a href="{% url 'webpage3' %}">Contact</a>
+      <a href="{% url 'post_list' %}">HOME</a>
+      <a class="active" href="{% url 'webpage2' %}">ABOUT</a>
+      <a href="{% url 'webpage3' %}">CONTACT</a>
     </div>
 
     <br />
-    <!-- picture from pixabay: https://pixabay.com/vectors/django-logo-django-project-339744/ -->
-
-    <img src="{% static 'imgs/logo.png' %}" height="200px" alt="django logo" />
-
-    <br />
     <br />
 
-    <h4>
-      Welcome to my first ever website! I made this website using Django, an
-      easy to use web framework that utilizes Python to create awesome websites!
-      Django essentially provides a template to develop and customize your
-      website however you desire. However, aesthetic components of this website
-      were done with the help of HTML and CSS. This was my first time really
-      using HTML and CSS, but I really enjoyed using them in developing this
-      website. Anyways, I hope you enjoy using this website and to come back for
-      more content!
-    </h4>
+    <div class="tempholder">
+      <div class="ltemp">
+        <div class="lcont">
+          <h1>hello.</h1>
+          <!-- <img src="{% static 'imgs/IMG-4012.JPG' %}" alt="author" height="200px" /> -->
+        </div>
+      </div>
+
+      <div class="main" style="padding-bottom: 20px;">
+        <!-- picture from pixabay: https://pixabay.com/vectors/django-logo-django-project-339744/ -->
+        <div class="content_container">
+          <div id="abt_web">
+            <h1>About this website:</h1>
+            <a
+              href="https://pixabay.com/vectors/django-logo-django-project-339744/"
+              ><img
+                src="{% static 'imgs/logo.png' %}"
+                alt="django logo"
+                height="250px"
+                style="display: block; margin-left: auto; margin-right: auto;"
+            /></a>
+
+            <div class="text">
+              Welcome to my first ever website! I made this website using
+              Django, an easy to use web framework that utilizes Python to
+              create awesome websites! Django essentially provides a template to
+              develop and customize your website however you desire. However,
+              aesthetic components of this website were done with the help of
+              HTML and CSS. This was my first time really using HTML and CSS,
+              but I really enjoyed using them in developing this website.
+              Anyways, I hope you enjoy using this website and to come back for
+              more content!
+            </div>
+          </div>
+
+          <br />
+
+          <div id="abt_auth">
+            <h1>About the author:</h1>
+            <img
+              src="{% static 'imgs/IMG-4012.JPG' %}"
+              alt="author"
+              height="200px"
+              style="float: left; padding-right: 20px; position: relative;"
+            />
+            <div class="text" style="padding-top: 10px;">
+              I am a first year Computer Science student at the University of
+              Birmingham Dubai. Some of my areas of interest are in Artificial
+              Intelligence, Machine Learning, and GUI development. Due to the
+              recent pandemic caused by Covid-19, I am currently based back home
+              in Malaysia and will be undertaking an internship there.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rtemp">
+        <div class="rcont">
+          <h1>goodbye.</h1>
+          <!-- <img src="{% static 'imgs/IMG-4012.JPG' %}" alt="author" height="200px" /> -->
+        </div>
+      </div>
+    </div>
   </body>
 </html>
