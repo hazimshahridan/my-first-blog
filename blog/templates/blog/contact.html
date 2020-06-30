@@ -69,8 +69,23 @@
     </div>
 
     <div class="ttl">
-      <h1>MUHAMMED HAZIM</h1>
-    </div>
+      <h1 style="
+              font-family: Arial, Helvetica, sans-serif;
+              font-weight: bold;
+              font-size: xx-large;
+            ">
+        MUHAMMED HAZIM
+      </h1>
+      {% if user.is_authenticated %}
+      <a href="{% url 'post_new' %}" class="top_menu"><span class="glyphicon glyphicon-plus"></span></a>
+      <a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
+      <p class="top menu" style="background-color: #ddd;">
+        Hello {{user.username}}
+        <small style="font-size: 85%;"> (<a href="{% url 'logout' %}" style="color: #428bca;font-size:85%;text-decoration: none;">Logout</a>)</small>
+      </p>
+      {% else %}
+      <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
+      {% endif %}
 
     <br />
 
@@ -86,7 +101,7 @@
     <div class="tempholder">
       <div class="ltemp">
         <div class="lcont">
-          <h1 style="font-weight: bold;">hello.</h1>
+          <!-- <h1 style="font-weight: bold;">hello.</h1> -->
           <!-- <img
             src="{% static 'imgs/IMG-4012.JPG' %}"
             alt="author"
@@ -116,7 +131,7 @@
 
       <div class="rtemp">
         <div class="rcont">
-          <h1>goodbye.</h1>
+          <!-- <h1>goodbye.</h1> -->
           <!-- <img
             src="{% static 'imgs/IMG-4012.JPG' %}"
             alt="author"
